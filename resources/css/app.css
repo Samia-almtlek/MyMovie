@@ -7,16 +7,28 @@
 @tailwind utilities;
 
 /* ===========================
+   General Page Styling
+=========================== */
+html, body {
+    background-color: #000000; /* Netflix dark background */
+    color: #FFFFFF; /* White text */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    height: 100%; /* Full height for the page */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* ===========================
    Footer Styles
 =========================== */
 footer {
-    background-color: #181818;
+    background-color: #181818; /* Darker background for footer */
     padding: 1rem 0;
     margin-top: 2rem;
 }
 
 footer p {
-    color: #FFFFFF;
+    color: #B3B3B3; /* Netflix gray for text */
     font-size: 0.875rem;
 }
 
@@ -30,7 +42,7 @@ footer a.text-light {
 }
 
 footer a.text-light:hover {
-    color: #E50914;
+    color: #E50914; /* Netflix red */
 }
 
 .hover-opacity:hover {
@@ -38,47 +50,219 @@ footer a.text-light:hover {
 }
 
 .btn-subscribe {
-    background-color: #E50914;
+    background-color: #E50914; /* Netflix red */
     color: #FFFFFF;
 }
 
 .btn-subscribe:hover {
-    background-color: #B00610;
+    background-color: #B00610; /* Darker red */
 }
 
 /* ===========================
-   Index Page Styles
+   Hero Section Styling
 =========================== */
-
-/* Background image styling */
 .bg-image {
     background-image: url('/images/Background.jpg'); /* Path to the background image */
-    background-size: cover; /* Make the image cover the entire background */
-    background-position: center; /* Center the image */
-    background-attachment: fixed; /* Keep the background fixed while scrolling */
-    min-height: 100vh; /* Make the height equal to the viewport height */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed */
+    min-height: 100vh; /* Cover full viewport */
+    color: #FFFFFF; /* White text */
+    display: flex; /* Flexbox for centering content */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove padding */
 }
 
-/* Styling for the main title */
 .bg-image h1 {
-    font-size: 3rem; /* Set font size */
-    font-weight: bold; /* Make the font bold */
-    color: #FFFFFF; /* White text color */
+    font-size: 3rem; /* Large title font */
+    font-weight: bold; /* Bold title */
+    color: #E50914; /* Netflix red */
+    text-align: center; /* Center align text */
+    margin-bottom: 1rem; /* Add space below the title */
 }
 
-/* Styling for the button inside the background */
+.bg-image p {
+    font-size: 1.25rem; /* Larger text for paragraph */
+    color: #FFFFFF; /* White text */
+    margin-bottom: 1.5rem; /* Add space below the paragraph */
+}
+
 .bg-image a {
-    margin-top: 1rem; /* Add margin above the button */
-    display: inline-block; /* Make the link behave like a button */
-    padding: 0.5rem 1rem; /* Add padding */
-    color: #FFFFFF; /* White text color */
-    background-color: #E50914; /* Red background color */
+    display: inline-block; /* Behave like a button */
+    padding: 0.75rem 1.5rem; /* Button padding */
+    color: #FFFFFF; /* White text */
+    background-color: #E50914; /* Netflix red */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Button font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
     text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Add rounded corners */
-    font-size: 1rem; /* Set font size */
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* Hover effect for the button */
 .bg-image a:hover {
-    background-color: #B00610; /* Darker red color on hover */
+    background-color: #B00610; /* Darker red for hover */
+}
+
+/* ===========================
+   Content Section Styling
+=========================== */
+.content-section {
+    background-color: #010101; /* Slightly lighter black for contrast */
+    color: #FFFFFF; /* White text */
+    padding: 3rem 2rem; /* Add padding for spacing */
+    border-radius: 0; /* Remove rounded corners */
+    margin: 0; /* Remove margins */
+    max-width: 100%; /* Ensure full width */
+    width: 100%; /* Cover the full container */
+}
+
+.content-section h2 {
+    color: #E50914; /* Netflix red */
+    font-size: 2rem; /* Adjust font size */
+    font-weight: bold;
+}
+
+.content-section p,
+.content-section ul {
+    color: #B3B3B3; /* Netflix gray for text */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.content-section a {
+    background-color: #E50914; /* Netflix red */
+    color: #FFFFFF; /* White text */
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.content-section a:hover {
+    background-color: #B00610; /* Darker red */
+}
+
+/* ===========================
+   Recent Posts Section Styling
+=========================== */
+.recent-posts {
+    background-color: #000000; /* Netflix dark background */
+    color: #FFFFFF; /* White text */
+}
+
+.section-title {
+    color: #E50914; /* Netflix red for headings */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.section-description {
+    color: #B3B3B3; /* Netflix gray for secondary text */
+}
+
+.post-tag {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    background-color: #E50914; /* Netflix red for tags */
+    color: #FFFFFF; /* White text */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.post-tag:hover {
+    background-color: #B00610; /* Darker red for hover */
+}
+
+.post-title {
+    color: #ffffff; /* White text for title */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.post-description {
+    color: #B3B3B3; /* Netflix gray for secondary text */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.post-btn {
+    background-color: #E50914; /* Netflix red for buttons */
+    color: #FFFFFF; /* White text */
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.post-btn:hover {
+    background-color: #B00610; /* Darker red */
+}
+
+.post-image {
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Add shadow for emphasis */
+}
+.review-text,.full-content,.short-content{
+    color: #B3B3B3; 
+
+}
+/* About My Movie Section - Image Styling */
+.content-section .img-fluid {
+    width: 100%; /* Make the image take the full width of its column */
+    max-width: 500px; /* Set a maximum width for the image */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px; /* Add rounded corners to the image */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Add a shadow effect around the image */
+}
+
+/* Recent Posts Section - Image Styling */
+.recent-posts img {
+    width: 100%; /* Make the image take the full width of its column */
+    max-width: 400px; /* Set a smaller maximum width for this section */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px; /* Add rounded corners to the image */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Add a shadow effect around the image */
+}
+
+/* General Image Styling */
+img {
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+/* ===========================
+   Button Standardization
+=========================== */
+.btn-standard {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: #FFFFFF;
+    background-color: #E50914;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btn-standard:hover {
+    background-color: #B00610;
+}
+
+.btn-standard:focus {
+    outline: none;
+    box-shadow: 0 0 5px #E50914;
 }
