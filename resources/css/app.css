@@ -1,3 +1,84 @@
+/* Import Bootstrap CSS first */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* TailwindCSS imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ===========================
+   Footer Styles
+=========================== */
+footer {
+    background-color: #181818;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    color: #FFFFFF;
+    font-size: 0.875rem;
+}
+
+footer h5 {
+    color: #FFFFFF;
+}
+
+footer a.text-light {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer a.text-light:hover {
+    color: #E50914;
+}
+
+.hover-opacity:hover {
+    opacity: 0.8;
+}
+
+.btn-subscribe {
+    background-color: #E50914;
+    color: #FFFFFF;
+}
+
+.btn-subscribe:hover {
+    background-color: #B00610;
+}
+
+/* ===========================
+   Index Page Styles
+=========================== */
+
+/* Background image styling */
+.bg-image {
+    background-image: url('/images/Background.jpg'); /* Path to the background image */
+    background-size: cover; /* Make the image cover the entire background */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    min-height: 100vh; /* Make the height equal to the viewport height */
+}
+
+/* Styling for the main title */
+.bg-image h1 {
+    font-size: 3rem; /* Set font size */
+    font-weight: bold; /* Make the font bold */
+    color: #FFFFFF; /* White text color */
+}
+
+/* Styling for the button inside the background */
+.bg-image a {
+    margin-top: 1rem; /* Add margin above the button */
+    display: inline-block; /* Make the link behave like a button */
+    padding: 0.5rem 1rem; /* Add padding */
+    color: #FFFFFF; /* White text color */
+    background-color: #E50914; /* Red background color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 1rem; /* Set font size */
+}
+
+/* Hover effect for the button */
+.bg-image a:hover {
+    background-color: #B00610; /* Darker red color on hover */
+}
