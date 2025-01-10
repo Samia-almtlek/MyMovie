@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PagesController::class, 'index']);
 
+Route::resource('/blog', PostsController::class);
 
 
 Route::get('/dashboard', function () {
