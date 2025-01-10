@@ -55,9 +55,13 @@
                     </x-slot>
                 </x-dropdown>
                 @else
-                <div>
+                <div class="flex space-x-4">
+                    <!-- Blog Link -->
+                    <a href="{{ route('blog.index') }}" class="text-sm text-gray-700 underline">Blog</a>
+                    <!-- Login Link -->
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                    <a href="{{ route('register') }}" class="ms-4 text-sm text-gray-700 underline">Register</a>
+                    <!-- Register Link -->
+                    <a href="{{ route('register') }}" class="text-sm text-gray-700 underline">Register</a>
                 </div>
                 @endauth
             </div>
