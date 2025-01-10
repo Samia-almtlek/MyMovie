@@ -266,3 +266,98 @@ img {
     outline: none;
     box-shadow: 0 0 5px #E50914;
 }
+/* ===========================
+   Blog Page Styling
+=========================== */
+
+
+
+/* Blog Header */
+.container h1 {
+    font-size: 3rem; /* Adjust the font size */
+    color: #E50914; /* Netflix red */
+    font-weight: bold; /* Make the font bold */
+}
+.container-fluid{
+    background-color: #000000;
+}
+
+/* Blog Image */
+.container .img-fluid {
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Add shadow */
+}
+
+/* Blog Content */
+.container h2 {
+    font-size: 2rem; /* Adjust font size */
+    color: #FFFFFF; /* White text */
+    font-weight: bold;
+}
+
+.container p {
+    font-size: 1rem;
+    color: #B3B3B3; /* Netflix gray for text */
+    line-height: 1.6;
+}
+
+/* Standard Button */
+.btn-standard {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: #FFFFFF;
+    background-color: #E50914;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btn-standard:hover {
+    background-color: #B00610;
+}
+.text{
+    font-size: 3rem; color: #B00610;
+}
+/* Blog Card Styling */
+.blog-card {
+    border: 2px solid #B00610; /* Netflix red border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Shadow around the card */
+    padding: 20px; /* Internal padding */
+    background-color: #181818; /* Dark background for contrast */
+}
+
+/* Button Standardization */
+.btn-standard {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: #FFFFFF;
+    background-color: #E50914;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btn-standard:hover {
+    background-color: #B00610;
+}
+/* Blog Card Image Styling */
+.blog-card img {
+    width: 100%; /* Make the image responsive */
+    max-width: 500px; /* Set a maximum width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Add shadow for emphasis */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
