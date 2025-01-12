@@ -361,3 +361,24 @@ img {
     display: block; /* Ensure the image is displayed as a block element */
     margin: 0 auto; /* Center the image horizontally */
 }
+/* تصميم القائمة المنسدلة */
+#release_year {
+    background-color: #181818; /* خلفية داكنة */
+    color: #FFFFFF; /* نص أبيض */
+    border: 1px solid #E50914; /* حواف بلون أحمر Netflix */
+    border-radius: 5px; /* حواف مستديرة */
+    padding: 10px; /* مساحة داخلية */
+    font-size: 1rem; /* حجم النص */
+}
+
+/* تصميم عند المرور بالفأرة */
+#release_year:hover {
+    background-color: #E50914; /* خلفية حمراء */
+    color: #FFFFFF; /* نص أبيض */
+}
+
+/* تصميم النص داخل القائمة */
+#release_year option {
+    background-color: #000000; /* خلفية سوداء */
+    color: #FFFFFF; /* نص أبيض */
+}
