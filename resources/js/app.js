@@ -6,7 +6,7 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 
 Alpine.start();
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     const readMoreButtons = document.querySelectorAll(".btn-standard");
     readMoreButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
@@ -27,3 +27,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+*/
