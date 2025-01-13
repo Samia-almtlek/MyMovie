@@ -9,10 +9,15 @@
         <h1 class="fw-bold text pt-12" style="color: #E50914;">All Posts</h1>
     </div>
 
+
+
     @if (Auth::check() && Auth::user()->is_admin)
     <div class="container-fluid py-3" style="background-color: #000;">
-        <div class="container">
-            <a href="/blog/create" class="btn btn-standard mt-3">Add a new post</a>
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="{{ route('admin.panel') }}" class="btn btn-standard mt-3 px-4 py-3"
+                style="font-size: 1.25rem; font-weight: bold;">
+                Admin Panel
+            </a>
         </div>
     </div>
     @endif
