@@ -3,6 +3,7 @@
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,18 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/blog/{slug}/edit', [PostsController::class, 'edit'])->name('blog.edit');
 });
 
+Route::get('/admin/panel', [AdminController::class, 'index'])->name('admin.panel')->middleware('auth');
 
+Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users')->middleware('auth');
+Route::patch('/admin/users/{id}/make-admin', [AdminController::class, 'makeAdmin'])->name('admin.users.makeAdmin')->middleware('auth');
+Route::patch('/admin/users/{id}/revoke-admin', [AdminController::class, 'revokeAdmin'])->name('admin.users.revokeAdmin')->middleware('auth');
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
+    Route::patch('/admin/users/{id}/make-admin', [AdminController::class, 'makeAdmin'])->name('admin.users.makeAdmin');
+    Route::patch('/admin/users/{id}/revoke-admin', [AdminController::class, 'revokeAdmin'])->name('admin.users.revokeAdmin');
+    Route::get('/admin/panel', [AdminController::class, 'index'])->name('admin.panel');
+});
 
 
 require __DIR__.'/auth.php';
