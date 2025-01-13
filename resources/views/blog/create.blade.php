@@ -4,7 +4,7 @@
     </div>
 
     <div class="container d-flex justify-content-center">
-        <form action="/blog" method="POST" enctype="multipart/form-data" class=" shadow p-4 text-light rounded"
+        <form action="/blog" method="POST" enctype="multipart/form-data" class="shadow p-4 text-light rounded"
             style="background-color: #000; max-width: 600px; width: 100%; border: 1px solid #333;">
             @csrf
             <!-- Title Input -->
