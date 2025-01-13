@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PagesController::class, 'index']);
 
 Route::resource('/blog', PostsController::class);
+Route::get('/blog/{slug}', [PostsController::class, 'show'])->name('blog.show');
+
 
 
 Route::get('/dashboard', function () {
@@ -23,6 +25,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/blog/create', [PostsController::class, 'create'])->name('blog.create');
+});
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/blog/{slug}/edit', [PostsController::class, 'edit'])->name('blog.edit');
 });
 
 
