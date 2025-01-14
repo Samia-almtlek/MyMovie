@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
@@ -17,14 +18,16 @@ Route::get('/blog/{slug}', [PostsController::class, 'show'])->name('blog.show');
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return redirect('/'); // إعادة التوجيه للصفحة الرئيسية
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/blog/create', [PostsController::class, 'create'])->name('blog.create');
@@ -55,6 +58,8 @@ Route::post('/categories', [CategoryController::class, 'store'])->middleware('au
 Route::get('/faqs/{faq}/edit', [FaqController::class, 'edit'])->middleware('auth', 'is_admin')->name('faq.edit');
 Route::put('/faqs/{faq}', [FaqController::class, 'update'])->middleware('auth', 'is_admin')->name('faq.update');
 Route::delete('/faqs/{faq}', [FaqController::class, 'destroy'])->middleware('auth', 'is_admin')->name('faq.destroy');
+
+Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
 
 
 require __DIR__.'/auth.php';
