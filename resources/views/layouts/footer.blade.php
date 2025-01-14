@@ -12,10 +12,9 @@
             <div class="col-md-3">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="/about" class="text-light">About Us</a></li>
-                    <li><a href="/contact" class="text-light">Contact Us</a></li>
+                    <a href="{{ route('about') }}" class="text-light">About Us</a>
+                    <li><a href="{{ route('contact.index') }}" class="text-light">Contact Us</a></li>
                     <li><a href="{{ route('faq.index') }}" class="text-light">FAQ</a></li>
-                    <li><a href="/privacy" class="text-light">Privacy Policy</a></li>
                 </ul>
             </div>
 
