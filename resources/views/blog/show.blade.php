@@ -36,9 +36,13 @@
 
                         <!-- Author and Date -->
                         <p class="text-white" style="font-size: 1.25rem;">
-                            By <span class="fw-bold">{{ $post->user->name }}</span> | Published on
+                            By <a href="{{ route('profile.show', $post->user->id) }}"
+                                class="fw-bold text-decoration-none"
+                                style="color: #E50914;">{{ $post->user->username }}</a>
+                            | Published on
                             <span>{{ date('d-m-Y', strtotime($post->updated_at)) }}</span>
                         </p>
+
 
                         <!-- Description -->
                         <div class="mt-4">

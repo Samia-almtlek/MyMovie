@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <!-- Hero Section -->
     <div class="bg-image">
         <h1>Welcome to your hub for movie news, reviews, and ratings.</h1>
@@ -37,10 +38,20 @@
                 <div class="col-md-6 p-5">
                     <h2 class="section-title mb-4" style="color: #E50914;">Recent Posts</h2>
                     <div class="mb-3">
+
                         <span class="post-tag me-1">{{ $latestPost->genre }}</span>
                         <span class="post-tag me-1">{{ $latestPost->release_year }}</span>
                     </div>
                     <h3 class="post-title mb-3">{{ $latestPost->title }}</h3>
+
+                    <!-- Author and Date -->
+                    <p class="text-white" style="font-size: 1.25rem;">
+                        By <a href="{{ route('profile.show', $latestPost->user->id) }}"
+                            class="fw-bold text-decoration-none"
+                            style="color: #E50914;">{{ $latestPost->user->username }}</a>
+                        | Published on
+                        <span>{{ date('d-m-Y', strtotime($latestPost->updated_at)) }}</span>
+                    </p>
                     <!-- Short Content -->
                     <p class="short-content">
                         {{ Str::limit($latestPost->description, 150) }}
