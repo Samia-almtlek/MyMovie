@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -44,4 +46,29 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Admin rights revoked successfully!'); // Redirect back with success message
     }
+
+
+public function create()
+{
+    return view('admin.create-user'); // عرض النموذج
+}
+
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
+        'is_admin' => 'required|boolean',
+    ]);
+
+    User::create([
+        'name' => $validated['name'],
+        'email' => $validated['email'],
+        'password' => Hash::make($validated['password']),
+        'is_admin' => $validated['is_admin'],
+    ]);
+
+    return redirect()->route('admin.users')->with('success', 'User created successfully!');
+}
 }

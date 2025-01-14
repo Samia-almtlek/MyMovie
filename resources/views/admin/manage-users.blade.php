@@ -1,3 +1,4 @@
+Mange-users.
 <x-app-layout>
     <div class="container mt-5">
         <h1 class="text-danger text-center">Manage Users</h1>
@@ -7,6 +8,10 @@
             {{ session()->get('success') }}
         </div>
         @endif
+
+        <div class="text-end mb-4">
+            <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Create New User</a>
+        </div>
 
         <table class="table table-dark table-striped mt-4">
             <thead>
@@ -53,4 +58,5 @@
             </tbody>
         </table>
     </div>
+
 </x-app-layout>
