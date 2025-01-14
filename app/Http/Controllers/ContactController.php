@@ -32,11 +32,20 @@ class ContactController extends Controller
     $adminEmail = 'samia.almoutlak@gmail.com';
 
     // إرسال البريد الإلكتروني للإيميل المحدد
-    Mail::raw($validated['message'], function ($mail) use ($validated, $adminEmail) {
-        $mail->to($adminEmail)
-            ->subject($validated['subject'])
-            ->from($validated['email'], $validated['name']);
-    });
+    Mail::raw(" You have received a new message from your contact form:
+
+    Name: {$validated['name']}
+    Email: {$validated['email']}
+    Subject: {$validated['subject']}
+    Message: {$validated['message']}
+    
+", function ($mail) use ($validated, $adminEmail) {
+    $mail->to($adminEmail)
+        ->subject($validated['subject'])
+        ->from(config('mail.from.address'), config('mail.from.name')); // الإيميل الثابت من الإعدادات
+});
+
+    
 
     return redirect()->route('contact.index')->with('success', 'Your message has been sent successfully to the admin!');
 }
