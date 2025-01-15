@@ -69,6 +69,6 @@ public function store(Request $request)
         'is_admin' => $validated['is_admin'],
     ]);
 
-    return redirect()->route('admin.users')->with('success', 'User created successfully!');
+    return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
 }
 }
