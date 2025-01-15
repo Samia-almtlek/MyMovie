@@ -1,4 +1,14 @@
 <x-app-layout>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="container-fluid text-center pt-5 pb-3">
         <h1 class="fw-bold text-danger">Edit the post</h1>
     </div>
