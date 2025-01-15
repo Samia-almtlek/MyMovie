@@ -64,10 +64,17 @@ class PostsController extends Controller
      */
     public function show($slug)
     
-    {
-        return view('blog.show')
-        ->with('post',Post::where('slug', $slug)->first());
-    }
+    
+{
+    // جلب المنشور مع التعليقات المرتبطة والمستخدمين الذين كتبوا التعليقات
+    $post = Post::where('slug', $slug)
+                ->with('comments.user') // جلب التعليقات والمستخدمين المرتبطين بها
+                ->firstOrFail();
+
+    // إرسال البيانات إلى العرض
+    return view('blog.show', ['post' => $post]);
+}
+
 
     /**
      * Show the form for editing the specified resource.
