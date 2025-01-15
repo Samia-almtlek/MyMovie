@@ -68,10 +68,10 @@
                     @if (Auth::check() && Auth::user()->is_admin)
                     <div class="btn-left mt-2">
                         <!-- تعديل -->
-                        <a href="{{ route('faq.edit', $faq->id) }}" class="btn btn-success btn-sm">Edit</a>
+                        <a href="{{ route('admin.faq.edit', $faq->id) }}" class="btn btn-success btn-sm">Edit</a>
 
                         <!-- حذف -->
-                        <form action="{{ route('faq.destroy', $faq->id) }}" method="POST" class="d-inline">
+                        <form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

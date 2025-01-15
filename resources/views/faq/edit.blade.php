@@ -2,7 +2,7 @@
     <div class="container mt-5">
         <h1 class="text-danger text-center">Edit FAQ</h1>
 
-        <form action="{{ route('faq.update', $faq->id) }}" method="POST">
+        <form action="{{ route('admin.faq.update', $faq->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
