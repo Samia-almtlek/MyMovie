@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +11,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id(); // بدلاً من increments
             $table->string('slug');
             $table->string('title');
             $table->longText('description');
@@ -21,8 +20,8 @@ return new class extends Migration
             $table->string('genre'); 
             $table->integer('release_year'); 
             $table->timestamps();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id'); // مفتاح أجنبي
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // حذف البيانات المرتبطة عند حذف المستخدم
         });
     }
 
