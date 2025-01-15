@@ -1,4 +1,3 @@
-Create-user.blade
 <x-app-layout>
     <div class="container mt-5">
         <h1 class="text-danger text-center">Create New User</h1>
