@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     <!-- Main Container with Black Background -->
     <div class="container-fluid bg-black text-light py-5">
         <div class="container">
@@ -43,7 +41,6 @@
                             <span>{{ date('d-m-Y', strtotime($post->updated_at)) }}</span>
                         </p>
 
-
                         <!-- Description -->
                         <div class="mt-4">
                             <h4 class="fw-bold text-light" style="font-size: 1.5rem;">Description:</h4>
@@ -55,6 +52,45 @@
                             <h4 class="fw-bold text-light" style="font-size: 1.5rem;">Personal Review:</h4>
                             <p style="font-size: 1.25rem;">{{ $post->my_review }}</p>
                         </div>
+
+                        <!-- عرض التعليقات -->
+                        <div class="comments mt-5">
+                            <h3 class="text-light">Comments</h3>
+                            @foreach ($post->comments as $comment)
+                            <div class="comment p-3 mb-2" style="background-color: #252525; border-radius: 8px;">
+                                <p>
+                                    <strong>
+                                        <a href="{{ route('profile.show', $comment->user->id) }}" class="text-primary"
+                                            style="text-decoration: none;">
+                                            {{ $comment->user->name }}
+                                        </a>
+                                    </strong>:
+                                </p>
+                                <p>{{ $comment->body }}</p>
+                            </div>
+                            @endforeach
+                        </div>
+
+                        <!-- نموذج إضافة تعليق -->
+                        @auth
+                        <div class="add-comment mt-4">
+                            <form action="{{ route('comments.store') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <textarea name="body" rows="4" class="form-control"
+                                        style="background-color: #252525; color: #FFFFFF; border: 1px solid #E50914;"
+                                        placeholder="Write your comment..." required></textarea>
+                                </div>
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <button type="submit" class="btn" style="background-color: #E50914; color: #FFFFFF;">Add
+                                    Comment</button>
+                            </form>
+                        </div>
+                        @else
+                        <p class="text-light">You must <a href="{{ route('login') }}" class="text-primary">login</a> to
+                            add a comment.</p>
+                        @endauth
+
                         <!-- Edit Button -->
                         @if (Auth::check() && Auth::user()->is_admin && Auth::user()->id ==$post->user_id)
                         <a href="{{ route('blog.edit', $post->slug) }}" class="btn btn-standard mt-3 "
