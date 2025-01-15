@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -69,6 +70,9 @@ Route::get('/faqs', [FaqController::class, 'index'])->name('faq.index');
 // Contact page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 
 // Authentication routes
 require __DIR__.'/auth.php';
