@@ -30,13 +30,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('update');
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
-        Route::get('/{user}', [ProfileController::class, 'show'])->name('show');
     });
 
     // FAQ and categories management
     Route::post('/faqs', [FaqController::class, 'store'])->name('faq.store');
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 });
+// Allow anyone to view user profiles
+Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
 
 // Routes for admin users only
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
