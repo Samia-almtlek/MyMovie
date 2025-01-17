@@ -63,7 +63,7 @@
                             <p style="font-size: 1.25rem;">{{ $post->my_review }}</p>
                         </div>
 
-                        <!-- عرض التعليقات -->
+                        <!-- View Comment-->
                         <div class="comments mt-5">
                             <h3 class="text-light">Comments</h3>
                             @foreach ($post->comments as $comment)
@@ -72,7 +72,7 @@
                                     <strong>
                                         <a href="{{ route('profile.show', $comment->user->id) }}" class="text-primary"
                                             style="text-decoration: none;">
-                                            {{ $comment->user->name }}
+                                            {{ $comment->user->username }}
                                         </a>
                                     </strong>:
                                 </p>
