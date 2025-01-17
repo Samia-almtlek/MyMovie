@@ -46,6 +46,16 @@
                             <h4 class="fw-bold text-light" style="font-size: 1.5rem;">Description:</h4>
                             <p style="font-size: 1.25rem;">{{ $post->description }}</p>
                         </div>
+                        <!-- Tags Input -->
+
+                        <div class="mb-3">
+                            <h5 class="fw-bold" style="color: #F4F1DE;">Tags:</h5>
+                            @foreach ($post->tags as $tag)
+                            <span class="badge"
+                                style="background-color: rgb(200, 129, 16); color: #FFFFFF; padding: 0.4rem 0.8rem;">{{ $tag->name }}</span>
+                            @endforeach
+                        </div>
+
 
                         <!-- Personal Review -->
                         <div class="mt-4">

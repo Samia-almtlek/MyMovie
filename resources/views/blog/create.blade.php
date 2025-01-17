@@ -10,16 +10,18 @@
     @endif
 
     <div class="container-fluid text-center pt-5 pb-3">
-        <h1 class="fw-bold text-danger">Create a New Post</h1>
+        <h1 class="fw-bold text-danger ">Create a New Post</h1>
     </div>
+
+
 
     <div class="container d-flex justify-content-center">
         <form action="/blog" method="POST" enctype="multipart/form-data" class="shadow p-4 text-light rounded"
-            style="background-color: #000; max-width: 600px; width: 100%; border: 1px solid #333;">
+            style=" max-width: 600px; width: 100%; border: 1px solid #333;">
             @csrf
             <!-- Title Input -->
             <div class="mb-3">
-                <label for="title" class="form-label fw-bold text-light">Title</label>
+                <label for="title" class="form-label fw-bold text-light ">Title</label>
                 <input type="text" id="title" name="title" placeholder="Enter title"
                     class="form-control bg-dark text-light border-secondary">
             </div>
@@ -47,6 +49,17 @@
                     <option value="{{ $year }}">{{ $year }}</option>
                     @endfor
                 </select>
+            </div>
+            <!-- Tags Input -->
+            <div class="mb-3">
+                <label for="tags" class="form-label fw-bold text-light">Tags</label>
+                <select name="tags[]" id="tags" class="form-select bg-dark text-light border-secondary" multiple>
+                    @foreach ($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+                <small class="text-muted">Hold down the Ctrl (Windows) or Command (Mac) button to select multiple
+                    tags.</small>
             </div>
             <!-- Personal Review -->
             <div class="mb-3">

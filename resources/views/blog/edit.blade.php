@@ -15,8 +15,7 @@
 
     <div class="container d-flex justify-content-center">
         <form action="/blog/{{$post->slug}}" method="POST" enctype="multipart/form-data"
-            class="shadow p-4 text-light rounded"
-            style="background-color: #000; max-width: 600px; width: 100%; border: 1px solid #333;">
+            class="shadow p-4 text-light rounded" style=" max-width: 600px; width: 100%; border: 1px solid #333;">
             @csrf
             @method('PUT')
             <!-- Title Input -->
@@ -55,6 +54,19 @@
                     <option value="2020">2020</option>
                 </select>
             </div>
+
+            <div class="mb-3">
+                <label for="tags" class="form-label fw-bold text-light">Tags</label>
+                <select name="tags[]" id="tags" class="form-select bg-dark text-light border-secondary" multiple>
+                    @foreach ($tags as $tag)
+                    <option value="{{ $tag->id }}"
+                        {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>
+                        {{ $tag->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+
 
             <!-- Personal Review -->
             <div class="mb-3">

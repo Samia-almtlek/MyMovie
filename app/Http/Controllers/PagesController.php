@@ -20,4 +20,5 @@ class PagesController extends Controller
         $latestPost = Post::latest()->first(); // جلب آخر بوست
         return view('index', compact('latestPost')); // إرسال البوست إلى الصفحة
     }
+    
 }

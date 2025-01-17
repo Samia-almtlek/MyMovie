@@ -43,6 +43,18 @@
                         <span class="post-tag me-1">{{ $latestPost->release_year }}</span>
                     </div>
                     <h3 class="post-title mb-3">{{ $latestPost->title }}</h3>
+                    <!-- Tags Section -->
+                    @if ($latestPost->tags->isNotEmpty())
+                    <div class="mb-3">
+                        <h5 class="fw-bold" style="color: #F4F1DE;">Tags:</h5>
+                        @foreach ($latestPost->tags as $tag)
+                        <span class="badge"
+                            style="background-color:rgb(200, 129, 16); color: #FFFFFF; padding: 0.4rem 0.8rem;">
+                            {{ $tag->name }}
+                        </span>
+                        @endforeach
+                    </div>
+                    @endif
 
                     <!-- Author and Date -->
                     <p class="text-white" style="font-size: 1.25rem;">
@@ -52,9 +64,12 @@
                         | Published on
                         <span>{{ date('d-m-Y', strtotime($latestPost->updated_at)) }}</span>
                     </p>
+
                     <!-- Short Content -->
                     <p class="short-content">
-                        {{ Str::limit($latestPost->description, 150) }}
+                    <h4 class="fw-bold text-light" style="font-size: 1.5rem;">
+                        Description:</h4>
+                    {{ Str::limit($latestPost->description, 150) }}
                     </p>
                     <div class="personal-review mt-4">
                         <h3 class="post-title mb-3">My Personal Review</h3>
