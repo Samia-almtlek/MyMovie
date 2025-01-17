@@ -63,8 +63,6 @@ Replace your_database_name with the name of your database.
 ### 4.install Dependencies:
 
 ``` bash
-نسخ
-تحرير
 composer install
 npm install
 npm run dev
@@ -72,14 +70,12 @@ npm run dev
 ### 5.Run Migrations and Seeders:
 
 ``` bash
-نسخ
-تحرير
+
 php artisan migrate --seed
 ```
 ### 6.Serve the Application:
 
 ``` bash
-تحرير
 php artisan serve
 ```
 ### 7.Access the Application:
