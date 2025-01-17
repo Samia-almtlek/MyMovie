@@ -16,7 +16,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check() || !auth()->user()->is_admin) {
-            return redirect('/'); // إعادة التوجيه إذا لم يكن المستخدم إداريًا
+            return redirect('/'); // if you was'nt admin
         }
         return $next($request);
     }

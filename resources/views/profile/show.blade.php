@@ -7,7 +7,7 @@
         @endif
 
         <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-            <!-- صورة المستخدم -->
+            <!-- Profile photo -->
             <div class="flex-shrink-0">
                 @if ($user->profile_photo)
                 <img src="{{ asset('storage/' . $user->profile_photo) }}" alt="Profile Photo"
@@ -18,7 +18,7 @@
                 @endif
             </div>
 
-            <!-- معلومات المستخدم -->
+            <!-- user info-->
             <div class="flex flex-col">
                 <h1 class="text-4xl font-bold text-black">{{ $user->username ?? $user->name }}</h1>
                 <p class="text-gray-800 text-xl mt-6">
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <!-- رابط تعديل الملف الشخصي يظهر فقط لصاحب الحساب -->
+        <!-- just for user-->
         @if (Auth::id() === $user->id)
         <div class="mt-10 text-center">
             <a href="{{ route('profile.edit') }}"

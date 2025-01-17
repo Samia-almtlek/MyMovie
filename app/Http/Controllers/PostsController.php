@@ -74,7 +74,7 @@ class PostsController extends Controller
     
     
 {
-    // جلب المنشور مع التعليقات المرتبطة والمستخدمين الذين كتبوا التعليقات
+// Retrieve the post along with the associated comments and the users who wrote those comments    
     $post = Post::where('slug', $slug)
             ->with(['comments.user', 'tags'])
             ->firstOrFail();
@@ -125,7 +125,7 @@ class PostsController extends Controller
             'release_year' => $request->input('release_year'),
         ]);
 
-        // تحديث الوسوم
+        // refresh tags 
         if ($request->has('tags')) {
             $post->tags()->sync($request->tags);
         }

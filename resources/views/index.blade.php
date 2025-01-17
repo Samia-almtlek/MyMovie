@@ -22,7 +22,7 @@
                     in a unique and distinctive way.
                 </p>
                 <div class="full-content" style="display: none;">
-                    <!-- محتوى إضافي -->
+
                 </div>
                 <a href="{{ route('about') }}" class="btn btn-standard">Read More</a>
             </div>

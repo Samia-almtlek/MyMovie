@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-       //لتشغيل الis_admin in middleware 
+       //is_admin in middleware 
         $middleware->alias([
             'is_admin' => AdminMiddleware::class
         ]);

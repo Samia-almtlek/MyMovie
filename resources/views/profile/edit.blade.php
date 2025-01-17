@@ -21,7 +21,7 @@
             @csrf
             @method('patch')
 
-            <!-- اسم المستخدم -->
+            <!-- username -->
             <div>
                 <x-input-label for="username" :value="__('Username')" />
                 <x-text-input id="username" name="username" type="text" class="mt-1 block w-full bg-white text-black"
@@ -29,7 +29,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('username')" />
             </div>
 
-            <!-- عيد الميلاد -->
+            <!-- date of birth-->
             <div>
                 <x-input-label for="birthday" :value="__('Birthday')" />
                 <x-text-input id="birthday" name="birthday" type="date" class="mt-1 block w-full bg-white text-black"
@@ -37,7 +37,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('birthday')" />
             </div>
 
-            <!-- صورة الملف الشخصي -->
+            <!-- photo-->
             <div>
                 <x-input-label for="profile_photo" :value="__('Profile Photo')" />
                 <input id="profile_photo" name="profile_photo" type="file"
@@ -49,7 +49,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('profile_photo')" />
             </div>
 
-            <!-- حولي -->
+            <!-- about me -->
             <div>
                 <x-input-label for="about_me" :value="__('About Me')" />
                 <textarea id="about_me" name="about_me"
@@ -57,7 +57,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('about_me')" />
             </div>
 
-            <!-- زر الحفظ -->
+            <!-- Save button -->
             <div class="text-center">
                 <x-primary-button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-lg font-bold">
                     {{ __('Save') }}

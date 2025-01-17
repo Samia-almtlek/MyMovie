@@ -10,13 +10,13 @@ class Comment extends Model
 
     protected $fillable = ['body', 'post_id', 'user_id'];
 
-    // العلاقة مع المنشور
+    // relatie with post
     public function post()
     {
         return $this->belongsTo(Post::class);
     }
 
-    // العلاقة مع المستخدم
+    // relatie with user
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -9,7 +9,7 @@ use App\Models\User;
 class ContactController extends Controller
 {
     /**
-     * عرض صفحة الاتصال.
+     * view contact page
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class ContactController extends Controller
     }
 
     /**
-     * إرسال البريد الإلكتروني للإدمنز.
+     * send email for admins
      */
     public function send(Request $request)
 {
@@ -28,14 +28,14 @@ class ContactController extends Controller
         'message' => 'required|string',
     ]);
 
-    // جلب جميع الإداريين
+    
     $admins = User::where('is_admin', true)->get();
 
     if ($admins->isEmpty()) {
         return redirect()->route('contact.index')->with('error', 'No admins available to receive the message.');
     }
 
-    // إرسال البريد الإلكتروني لكل إداري
+    // send the emai for each admin
     foreach ($admins as $admin) {
         Mail::raw("You have received a new message from your contact form:
         

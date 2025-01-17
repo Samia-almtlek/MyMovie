@@ -2,10 +2,10 @@
     <div class="container mt-5">
         <h1 class="text-danger text-center" style="color: #E50914;">FAQs</h1>
 
-        <!-- فورم إضافة الأسئلة يظهر فقط للإدمن -->
+        <!-- Forms to add qustions just for admin -->
         @if (Auth::check() && Auth::user()->is_admin)
         <div class="mb-4">
-            <!-- فورم إضافة كاتيجوري جديد -->
+            <!-- Form to add new category-->
             <h3 class="text-primary" style="color: #E50914;">Add a New Category</h3>
             <form action="{{ route('categories.store') }}" method="POST" class="mb-4">
                 @csrf
@@ -18,7 +18,7 @@
                 <button type="submit" class="btn btn-success">Add Category</button>
             </form>
 
-            <!-- فورم إضافة سؤال -->
+            <!-- Add question-->
             <h3 class="text-primary" style="color: #E50914;">Add a New FAQ</h3>
             <form action="{{ route('faq.store') }}" method="POST">
                 @csrf
@@ -47,7 +47,7 @@
         </div>
         @endif
 
-        <!-- عرض الفئات والأسئلة -->
+        <!-- View categories and qustions-->
         @foreach ($categories as $category)
         <div class="mt-4">
             <h3 class="text-primary" style="color: #E50914;">{{ $category->name }}</h3>
@@ -55,22 +55,22 @@
                 @foreach ($category->faqs as $faq)
                 <li class="list-group-item d-flex flex-column"
                     style="background-color: #FFFFFF; color: #000000; border: 1px solid #E50914;">
-                    <!-- السؤال -->
+                    <!-- qustion -->
                     <div class="question" style="cursor: pointer;" onclick="toggleAnswer(this)">
                         <strong style="color: #E50914;">{{ $faq->question }}</strong>
                     </div>
-                    <!-- الإجابة -->
+                    <!-- answer -->
                     <div class="answer" style="display: none; margin-top: 10px; color: #000000;">
                         <p>{{ $faq->answer }}</p>
                     </div>
 
-                    <!-- أزرار تعديل وحذف تظهر فقط للإدمن -->
+
                     @if (Auth::check() && Auth::user()->is_admin)
                     <div class="btn-left mt-2">
-                        <!-- تعديل -->
+                        <!-- edit -->
                         <a href="{{ route('admin.faq.edit', $faq->id) }}" class="btn btn-success btn-sm">Edit</a>
 
-                        <!-- حذف -->
+                        <!-- delete -->
                         <form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
@@ -85,14 +85,14 @@
         @endforeach
     </div>
 
-    <!-- Script للتبديل -->
+    <!-- Script toggle -->
     <script>
     function toggleAnswer(element) {
         const answer = element.nextElementSibling;
         if (answer.style.display === "none" || answer.style.display === "") {
-            answer.style.display = "block"; // إظهار الإجابة
+            answer.style.display = "block";
         } else {
-            answer.style.display = "none"; // إخفاء الإجابة
+            answer.style.display = "none";
         }
     }
     </script>

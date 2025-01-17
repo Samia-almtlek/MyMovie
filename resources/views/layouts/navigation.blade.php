@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16 items-center">
             <!-- Logo and Dashboard -->
             <div class="flex items-center space-x-6">
-                <!-- اسم الموقع -->
+                <!-- Route -->
                 <a href="{{ route('dashboard') }}" class="text-red-600 text-2xl font-bold">
                     My Movie
                 </a>

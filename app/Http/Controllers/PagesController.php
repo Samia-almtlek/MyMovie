@@ -12,13 +12,13 @@ use App\Models\Post;
 class PagesController extends Controller
 {
     /**
-     * عرض الصفحة الرئيسية
+     * view index page
      */
     public function index()
     {
         
-        $latestPost = Post::latest()->first(); // جلب آخر بوست
-        return view('index', compact('latestPost')); // إرسال البوست إلى الصفحة
+        $latestPost = Post::latest()->first(); // fetch the last post
+        return view('index', compact('latestPost')); //   send post 
     }
     
 }

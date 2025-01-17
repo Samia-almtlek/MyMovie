@@ -81,7 +81,7 @@
                             @endforeach
                         </div>
 
-                        <!-- نموذج إضافة تعليق -->
+                        <!-- Comment form-->
                         @auth
                         <div class="add-comment mt-4">
                             <form action="{{ route('comments.store') }}" method="POST">
