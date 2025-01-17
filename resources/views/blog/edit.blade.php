@@ -44,14 +44,10 @@
             <div class="mb-3">
                 <label for="release_year" class="form-label fw-bold text-light">Release Year</label>
                 <select id="release_year" name="release_year" class="form-select bg-dark text-light border-secondary">
-                    <option value="{{$post->release_year}}" disabled selected>Select a year</option>
-                    <!-- السنوات -->
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
+                    <option value="" disabled selected>Select a year</option>
+                    @for ($year = date('Y'); $year >= 2000; $year--)
+                    <option value="{{ $year }}">{{ $year }}</option>
+                    @endfor
                 </select>
             </div>
 
