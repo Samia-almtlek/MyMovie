@@ -21,46 +21,153 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+# My Movie Project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Project Overview
+My Movie is a movie blog platform where admins can post movie reviews, manage user roles, and interact with users. Visitors and registered users can browse posts, view profiles, and interact with content. The platform also includes an FAQ section, a contact form, and user profile management.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Steps to Set Up the Project
+### 1.Pre-requisites:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install XAMPP.
+Install Composer.
+Install Node.js.
 
-## Laravel Sponsors
+### 2.Clone the Repository:
+ ```url
+     git clone <https://github.com/Samia-almtlek/MyMovie.git>
+ ```
+ ``` bash
+cd MyMovie
+ ```
+ 
+### 3.Configure XAMPP:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1.Start Apache and MySQL in XAMPP.
 
-### Premium Partners
+Ensure you have a .env file in the root directory (create one if it doesn’t exist).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+2.Update the Database Configuration:
 
-## Contributing
+Open the .env file and update the following values to match your phpMyAdmin setup:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD=your_password
+Replace your_database_name with the name of your database.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4.install Dependencies:
 
-## Security Vulnerabilities
+``` bash
+نسخ
+تحرير
+composer install
+npm install
+npm run dev
+```
+### 5.Run Migrations and Seeders:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+``` bash
+نسخ
+تحرير
+php artisan migrate --seed
+```
+### 6.Serve the Application:
 
-## License
+``` bash
+تحرير
+php artisan serve
+```
+### 7.Access the Application:
+``` url
+Open http://127.0.0.1:8000 in your browser.
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Project Features
+
+## For Visitors
+- **Browse Blog Posts**
+  - View all posts with details:
+    - Title
+    - Description
+    - Genre
+    - Release year
+    - Tags
+    - Admin's review
+    - Image
+  - Explore the latest movie reviews and updates.
+
+- **View Public Profiles**
+  - Access profiles of all users (admins or regular users).
+  - View profile information such as:
+    - Name
+    - Bio
+    - Birthdate
+    - Profile photo.
+
+- **FAQs and Categories**
+  - Browse frequently asked questions categorized for easy navigation.
+
+- **Contact Form**
+  - Submit queries via the contact form.
+
+## For Registered Users
+- **Personal Profile**
+  - Edit personal details including:
+    - Username
+    - Bio
+    - Birthdate
+    - Upload a profile picture.
+
+- **Commenting on Posts**
+  - Share opinions on movies by commenting on blog posts.
+  - Comments are visible to all visitors.
+
+- **Password Recovery**
+  - Recover accounts via the email-based password reset feature.
+
+## For Admins
+- **Manage Blog Posts**
+  - Create, edit, or delete posts.
+  - Include title, description, genre, release year, tags, personal review, and an image.
+
+- **Manage User Roles**
+  - Assign or revoke admin privileges for any user.
+  - Create new users with defined roles (admin or regular user).
+
+- **Manage FAQs and Categories**
+  - Add, edit, or delete FAQs.
+  - Organize FAQs under existing categories or create new ones.
+
+- **Contact Form Management**
+  - Respond to visitor queries submitted via the contact form.
+  - 
+
+# Source References
+
+- **Chatgpt:**  
+
+- **Laravel Documentation:**  
+  [https://laravel.com/docs](https://laravel.com/docs)
+
+- **Bootstrap Framework:**  
+  [https://getbootstrap.com](https://getbootstrap.com)
+
+- **Font Awesome for Icons:**  
+  [https://fontawesome.com](https://fontawesome.com)
+
+- **Educational Resources:**
+  - [YouTube Tutorial: Laravel Beginner Guide](https://youtu.be/f6uQfOw2_6o?si=WqyGibAhWW9Pe-Tv)
+  - [YouTube Tutorial: Build a Blog with Laravel](https://www.youtube.com/watch?v=6hgBFDTTwEk&t=0s)
+  - [YouTube Tutorial: Complete Laravel Project](https://www.youtube.com/watch?v=J20l1RGyIZE)
+  - [Laravel 11 Update User Profile Tutorial Example](https://www.itsolutionstuff.com/post/laravel-11-update-user-profile-tutorial-exampleexample.html#)
+ 
+
+# Note
+* Ensure XAMPP is running with Apache and MySQL services before starting the application.
+* In the default seeder, no image has been set for the default posts. This gives you an opportunity to test the "Edit Post" functionality by uploading your own image for the post :).
+
